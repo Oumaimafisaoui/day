@@ -1,50 +1,63 @@
 #include <stdio.h>
 #include <string.h>
 
+
+size_t max_length(char *str)
+{
+    char *string = strtok(str, " ");
+    size_t max = strlen(string) + 4;
+    int flag = 0;
+    while(string != NULL)
+    {
+        if (strlen(string) + 4 >  max)
+        {
+            max = strlen(string) + 4;
+        }
+        string = strtok(NULL, " ");
+    }
+    return max;
+}
+
 int main(int argc, char **argv)
 {
     if(argc >= 2)
     {
         for(int i = 1; i < argc ; i++)
         {
-            if(strcmp(argv[i], ""))
+            if(strlen(argv[i]) > 0)
             {
-
+                size_t max = max_length(argv[i]);
+                printf("max = %zu", max);
                 char *string = strtok(argv[i], " ");
-                int flag = 0;
-                size_t len = strlen(string) + 4;
-                while(string != NULL)
-                {
-                    int j = 0;
-                    if(flag == 0)
-                    {
-                        while(j < len)
-                        {
-                            printf("*");
-                            j++;
-                        }
-                        printf("\n");
-                    }
-                    flag = 1;
-                    printf("* ");
-                    printf("%s" , string);
-                    int k = 0;
-                    while(k < len - strlen(string) - 4)
-                    {
-                        printf(" ");
-                        k++;
-                    }
-                    printf(" *\n");
-                    string = strtok(NULL, " ");
-                }
-                int j = 0;
-                while(j < len)
+                int k = 0;
+                while (k < max)
                 {
                     printf("*");
-                    j++;
+                    k++;
                 }
                 printf("\n");
+                while(string != NULL)
+                {
+                    printf("* %s", string);
+                    int j = 0;
+                    while (j <= max - strlen(string) - 4)
+                    {
+                        printf(" ");
+                        j++;
+                    }
+                    printf("*\n");
+                    string = strtok(NULL, " ");
+                }
+                k = 0;
+                while (k < max)
+                {
+                    printf("*");
+                    k++;
+                } 
+        printf("\n");
         }
-        }
+}
     }
+
+    return 0;
 }
