@@ -5,9 +5,9 @@ sub palindrome
     my ($name) = @_;
     my $i = 0;
 
-    while($i < (length($name) - 1) / 2)
+    my $j = length($name) -1;
+    while($i <= $j)
     {
-        my $j = length($name) - 1;
         if (substr($name, $i, 1) eq substr($name, $j, 1))
         {
             $i++;
