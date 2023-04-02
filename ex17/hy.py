@@ -2,3 +2,6 @@ hex_code = "efbd94efbd93e28088e28083efbd85efbd89efbd86efbd95efbd85efbd94e28081e2
 binary_data = bytes.fromhex(hex_code)
 decoded_string = binary_data.decode("utf-8")
 print(decoded_string)
+
+
+ｔｓ  ｅｉｆｕｅｔ  Ｐｉｙｕ ｔ ｉｏ сⅰａｅｔｉ

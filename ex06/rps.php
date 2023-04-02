@@ -13,7 +13,7 @@ function game($computer, $user)
 {
     if($computer == $user)
     {
-       return ("Even result!");
+       return ("Even result! the computer chose ${computer}");
     }
     else if ($user == "rock")
     {

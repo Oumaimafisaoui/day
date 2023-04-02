@@ -21,7 +21,6 @@ sub palindrome
     return (1)
 }
 
-
 print "Enter a string: ";
 my $name = <STDIN>;
 chomp $name;
