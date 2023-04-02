@@ -1,15 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-while true
+while :
 do
- 
-  read -u 0 -t 1 input <<< "yes"
-  
-  if [ $? -eq 0 ]
-  then
-    echo "yes"
-    continue
-  fi
-
-  sleep 0.1
+  awk 'BEGIN {while(1) print "yes"}'
 done
