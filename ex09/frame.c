@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-int has_alphanumeric(char *str)
+int has_alphanum(char *str)
 {
     int i;
     for (i = 0; str[i] != '\0'; i++) {
@@ -14,10 +14,9 @@ int has_alphanumeric(char *str)
     return 0;
 }
 
-
 size_t max_length(char *str)
 {
-    if (has_alphanumeric(str))
+    if (has_alphanum(str))
     {
         char *string = strtok(strdup(str), " ");
         size_t max = strlen(string) + 4;

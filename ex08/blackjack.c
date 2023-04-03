@@ -8,17 +8,17 @@ int main(int argc, char **argv)
     int ace = 0;
     if(argc == 2)
     {
-        for(int i = 0; i < strlen(argv[1]); i++)
+        for(int index = 0; index < strlen(argv[1]); index++)
         {
-            if(isdigit(argv[1][i]) && (argv[1][i] - '0') >= 2 && (argv[1][i] - '0') <= 9)
+            if(isdigit(argv[1][index]) && (argv[1][index] - '0') >= 2 && (argv[1][index] - '0') <= 9)
             {
-                result += argv[1][i] - '0';
+                result += argv[1][index] - '0';
             }
-            else if (argv[1][i] == 'J' || argv[1][i] ==  'Q' || argv[1][i] ==  'K' || argv[1][i] ==  'D' || argv[1][i] == 'T')
+            else if (argv[1][index] == 'J' || argv[1][index] ==  'Q' || argv[1][index] ==  'K' || argv[1][index] ==  'D' || argv[1][index] == 'T')
             {
                 result += 10;
             }
-            else if (argv[1][i] ==  'A')
+            else if (argv[1][index] ==  'A')
             {
                 result += 11;
                 ace++;
@@ -36,5 +36,5 @@ int main(int argc, char **argv)
         else
             printf("%d\n", result);
     }
-
+    return 1;
 }
