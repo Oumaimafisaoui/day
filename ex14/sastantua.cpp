@@ -13,6 +13,44 @@ bool is_digits(const std::string& str)
     return true;
 }
 
+
+void level(int rows, int colums)
+{
+    
+}
+void sastantua(int height)
+{
+    int rows = height + 2;
+    int init = 4;
+
+    int flag = 0;
+    for (int i = 1; i <= rows; i++)
+    {
+        if(i == rows)
+            flag = 1;
+        //spaces
+        for(int j = 1; j <= rows - i; j++)
+        {
+            cout << " ";
+
+        }
+        cout << "/";
+        for(int k = 1; k <= (i * 2) - 1; k++)
+        {
+            if(flag == 1 && k == i)
+            {
+                cout << "|";
+                continue;
+            }
+            else
+                cout << "*";
+        }
+        cout << "\\";
+        cout << endl;
+    }
+
+}
+
 int main(int argc, char **argv) 
 {
     if(argc == 2)
@@ -22,67 +60,10 @@ int main(int argc, char **argv)
         {
             int height = stoi(arg);
 
-
-
-            if(height > 1 && height <=5)
+            if(height >= 1 && height <= 5)
             {
-                int rows = height + 2;
-                int init = 4;
-
-                int flag = 0;
-                for (int i = 1; i <= rows; i++)
-                {
-                    if(i == rows)
-                        flag = 1;
-                    //spaces
-                    for(int j = 1; j <= rows - i; j++)
-                    {
-                        cout << " ";
-
-                    }
-                    cout << "/";
-                    for(int k = 1; k <= (i * 2) - 1; k++)
-                    {
-                        if(flag == 1 && k == i)
-                        {
-                            cout << "|";
-                            continue;
-                        }
-                        else
-                            cout << "*";
-                    }
-                    cout << "\\";
-                    cout << endl;
-                }
-
+               sastantua(height);
             }
-            // int height = stoi(arg);
-            // int rows = height + 2;
-            // int init = 4;
-
-            // int flag = 0;
-            // for (int i = 1; i <= rows; i++)
-            // {
-            //     if(i == rows)
-            //         flag = 1;
-            //     for(int j = 1; j <= init - i - 1; j++)
-            //     {
-            //         cout << " ";
-
-            //     }
-            //     cout << "/";
-            //     for(int k = 1; k <= i; k++)
-            //     {
-            //         if(flag == 1 && k == init - 1)
-            //         {
-            //             cout << "|";
-            //             break ;
-            //         }
-            //         else
-            //             cout << "*";
-            //     }
-            //     cout << endl;
-            // }
         }
 }
 }
