@@ -14,41 +14,55 @@ bool is_digits(const std::string& str)
 }
 
 
-void level(int rows, int colums)
+void level(int rows, int columns, int decal)
 {
-    
-}
-void sastantua(int height)
-{
-    int rows = height + 2;
-    int init = 4;
+    int j;
 
-    int flag = 0;
-    for (int i = 1; i <= rows; i++)
+    for(int i = 0; i < rows; i++)
     {
-        if(i == rows)
-            flag = 1;
-        //spaces
-        for(int j = 1; j <= rows - i; j++)
+        j = -decal;
+        while(j < rows - i - 1)
         {
             cout << " ";
-
+            j++;
         }
+        j += rows - i - 1;
         cout << "/";
-        for(int k = 1; k <= (i * 2) - 1; k++)
+        while(j < columns - 2)
         {
-            if(flag == 1 && k == i)
+            if (i == rows - 1 && j == (columns - 2) / 2)
             {
                 cout << "|";
-                continue;
             }
             else
                 cout << "*";
+            j++;
         }
         cout << "\\";
-        cout << endl;
+        cout << "\n"; 
     }
+}
 
+int calculate_col(int i)
+{
+    if (i == 0)
+        return (7);
+    return (calculate_col(i - 1) + 2 * (1 + (3 + i) + ((i % 2) + (i / 2))));
+}
+
+void sastantua(int height)
+{
+    int rows;
+    int columns;
+    int decal;
+
+    for(int i = 0; i < height; i++)
+    {
+        decal = (calculate_col(height - 1) - calculate_col(i)) / 2;
+        rows = 3 + i;
+        columns = calculate_col(i);
+        level(rows, columns, decal);
+    }
 }
 
 int main(int argc, char **argv) 
@@ -60,10 +74,10 @@ int main(int argc, char **argv)
         {
             int height = stoi(arg);
 
-            if(height >= 1 && height <= 5)
-            {
-               sastantua(height);
-            }
+            // if(height >= 1 && height <= 5)
+            // {
+                sastantua(height);
+            // }
         }
 }
 }
