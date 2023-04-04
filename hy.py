@@ -1,4 +1,0 @@
-hex_code = "efbd94efbd93e28088e28083efbd85efbd89efbd86efbd95efbd85efbd94e28081e28080efbcb0efbd89efbd99efbd95e28088efbd94e28088efbd89efbd8fe28087d181e285b0efbd81efbd85efbd94efbd89"
-binary_data = bytes.fromhex(hex_code)
-decoded_string = binary_data.decode("utf-8")
-print(decoded_string)

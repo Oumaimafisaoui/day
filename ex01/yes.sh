@@ -1,6 +1,2 @@
 #!/bin/bash
-
-while :
-do
-  awk 'BEGIN {while(1) print "yes"}'
-done
+yes yes | tr 'yes' 'yes'
