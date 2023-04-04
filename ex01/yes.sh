@@ -1,2 +1,6 @@
 #!/bin/bash
-yes yes | tr 'yes' 'yes'
+
+while true
+do
+  xxd -p <<< "yes" | tr -d '\n' | xxd -p -r
+done
