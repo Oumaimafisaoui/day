@@ -1,7 +1,13 @@
+#include <iostream>
+#include <cstdlib>
+#include <unistd.h>
 
-#include <libc.h>
-
-int main(int argc, char **argv)
-{
-    return (argc == 2 ? execl("9waleb", "9waleb", argv[1], NULL): 0);
+int main(int argc, char **argv) {
+    if (argc == 2) {
+        const char *args[] = {"sastantua", argv[1], nullptr};
+        execv("./sastantua", const_cast<char **>(args));
+        perror("exec error");
+        exit(EXIT_FAILURE);
+    }
+    return 0;
 }
